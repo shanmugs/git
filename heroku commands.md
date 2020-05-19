@@ -1,4 +1,4 @@
-env vars importing and exporting  
+##  env vars importing and exporting  
 ```
 heroku config -s -a api-sample > api-sample-config.txt
 
@@ -6,11 +6,9 @@ cat api-sample-config.txt | tr '\n' ' ' | xargs heroku config:set -a  api-sample
 
 ````
 
-Description 	Steps 	Expected Output
+## Description 	Steps 	Expected Output
 
-Start a detached heroku command so that it runs on remote dyno
-
-and doesn't depend of bandwidth of your local computer
+##  Start a detached heroku command so that it runs on remote dyno and doesn't depend of bandwidth of your local computer
 ```
  heroku run:detached --app=spare-staging-monkey rake db:reset  	
 ```
@@ -22,21 +20,21 @@ heroku logs --app spare-staging-monkey --dyno run.3613
 ```
 to view the output.
 
-To check the status of the command being executed
+##  To check the status of the command being executed
 
 DYNO ID will be the id received in output from executing first step
 ```
 heroku logs -t --app spare-staging-monkey --dyno <DYNO ID> 	
 ```
 -t → tails/streams the log output
-To stop a process that you started 	
+## To stop a process that you started 	
 ```
 heroku ps:stop --app spare-staging-monkey --dyno <DYNOID> 	
 ```
-this stops the process and kills the dyno gracefully
+## this stops the process and kills the dyno gracefully
 
 
-Ensure you have the Heroku CLI installed. Copy/paste below and replace the heroku-app-name with the name of your Heroku app.
+## Ensure you have the Heroku CLI installed. Copy/paste below and replace the heroku-app-name with the name of your Heroku app.
 
 ```
 $ heroku drains:add https://sss:ssssss@heroku.logdna.com/heroku/logplex?app=[heroku-app-name] --app [heroku-app-name]
